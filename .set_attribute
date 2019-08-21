@@ -1,6 +1,15 @@
 #!/bin/bash
 
+append_to_bashrc () {
+	echo $1 >> ~/.bashrc
+	source ~/.bashrc
+}
+
 read -p "Write the attribute name: " NAME
 read -p "Write the attribute value: " ATTRIBUTE
+LOCATION=~/Music #Random location I chose
 
-attr -s $NAME -V $ATTRIBUTE ~/.bashrc
+attr -s $NAME -V $ATTRIBUTE $LOCATION 
+
+append_to_bashrc "alias $NAME='attr -g $NAME $LOCATION'"
+
