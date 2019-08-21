@@ -1,0 +1,6 @@
+#!/bin/bash
+
+read -p "Write the attribute name: " NAME
+read -p "Write the attribute value: " ATTRIBUTE
+
+attr -s $NAME -V $ATTRIBUTE ~/.bashrc
