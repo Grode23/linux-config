@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# First of all, download Popcorn Time from its official website.
+# Then place it in Downloads directory.
+
+LOCATION=$PWD 
+
+#1. Dependecies
+sudo apt update && sudo apt install -y libcanberra-gtk-module libgconf-2-4
+
+#2. Install Popcorn Time
+sudo mkdir /opt/popcorntime
+cd ~/Downloads
+sudo tar Jxf Popcorn-Time-* -C /opt/popcorntime
+
+#3. Make Popcorn Time accessible for everyone
+sudo ln -sf /opt/popcorntime/Popcorn-Time /usr/bin/Popcorn-Time
+
+#4. Create desktop launcher for Popcorn Time
+
+sudo cat $LOCATION/popcorn-desktop-launcher | sudo tee /usr/share/applications/popcorntime.desktop
+
+sudo wget -O /opt/popcorntime/popcorn.png https://upload.wikimedia.org/wikipedia/commons/d/df/Pctlogo.png
