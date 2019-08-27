@@ -3,10 +3,36 @@
 read -p "Email: " EMAIL
 
 #Must-have Installs
-sudo apt install -y git
-sudo apt install -y vim 
-sudo apt install -y attr
+sudo apt install -y ubuntu-restricted-extras #Due to copyrights they are not included in Ubuntu by default
+sudo apt install -y git #git
+sudo apt install -y vim #Vim
+sudo apt install -y attr #Attributes
+sudo apt install -y terminator #terminal
+#Install brave browser
+sudo apt install -y apt-transport-https curl
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+source /etc/os-release
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
+sudo apt update
+sudo apt install -y brave-browser
+
+#Snaps
+
+#Spotify
+sudo snap install spotify
+
 
 #Insert email for git
 git config --global user.email $EMAIL
+
+#Append .vim to ~/.vimrc
+#If it doesn't exists, create it
+touch ~/.vimrc
+cat .config.vim >> ~/.vimrc
+
+#Minimize running window on click
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+#Remove execute permission since it has to run only once
+chmod -x .config_file
 
