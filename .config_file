@@ -21,24 +21,10 @@ sudo apt install -y brave-browser
 #The required text to .vimrc is already done (Plugin YCM is written too)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-#Requirments (probably already installed, but anyway)
-sudo apt install -y python3.6
-sudo apt install -y cmake
-sudo apt install -y gcc
-sudo apt install -y make
-sudo apt install -y zlib1g
-
-#Build LLVM
-git clone https://github.com/llvm/llvm-project.git ~/git
-cd ~/git/llvm-project
-mkdir build
-cd build
-cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" ../llvm
-make
-
-
-sudo apt install -y python-dev python3-dev
-sudo apt install -y cmake
+sudo apt install -y build-essential cmake python3-dev
+vim -c 'PluginInstall' -c 'q' -c 'q' #Open vim, install YCM and then close it
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --clang-completer
 
 #Snaps
 sudo snap install spotify
