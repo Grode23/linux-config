@@ -16,23 +16,48 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_C
 sudo apt update
 sudo apt install -y brave-browser
 
-#Snaps
+#Requirments for YouCompleteMe
+#First of all, clone Vundle 
+#The required text to .vimrc is already done (Plugin YCM is written too)
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-#Spotify
+#Requirments (probably already installed, but anyway)
+sudo apt install -y python3.6
+sudo apt install -y cmake
+sudo apt install -y gcc
+sudo apt install -y make
+sudo apt install -y zlib1g
+
+#Build LLVM
+git clone https://github.com/llvm/llvm-project.git ~/git
+cd ~/git/llvm-project
+mkdir build
+cd build
+cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" ../llvm
+make
+
+
+sudo apt install -y python-dev python3-dev
+sudo apt install -y cmake
+
+#Snaps
 sudo snap install spotify
 
 
 #Insert email for git
 git config --global user.email $EMAIL
 
-#Append .vim to ~/.vimrc
-#If it doesn't exists, create it
+#Create .vimrc 
 touch ~/.vimrc
-cat .config.vim >> ~/.vimrc
+cat .vimrc > ~/.vimrc
 
 #Minimize running window on click
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
+#Aliases
+echo "alias lsa='ls -a'" >> ~/.bashrc 
+echo "alias lsal='ls -al'" >> ~/.bashrc 
+echo "alias lsl='ls -l'" >> ~/.bashrc 
+
 #Remove execute permission since it has to run only once
 chmod -x .config_file
-
