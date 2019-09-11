@@ -8,6 +8,13 @@ sudo apt install -y git #git
 sudo apt install -y vim #Vim
 sudo apt install -y attr #Attributes
 sudo apt install -y terminator #terminal
+sudo apt install -y tree #tree command
+sudo apt install -y default-jdk #Java tools like javac
+sudo apt install -y nmap 
+sudo apt install -y net-tools #For ifconfig
+sudo apt install -y torbrowser-launcher
+sudo apt install -y maven
+
 #Install brave browser
 sudo apt install -y apt-transport-https curl
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
@@ -15,6 +22,10 @@ source /etc/os-release
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
 sudo apt update
 sudo apt install -y brave-browser
+
+#Create .vimrc 
+touch ~/.vimrc
+cat .vimrc > ~/.vimrc
 
 #Requirments for YouCompleteMe
 #First of all, clone Vundle 
@@ -26,16 +37,23 @@ vim -c 'PluginInstall' -c 'q' -c 'q' #Open vim, install YCM and then close it
 cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --clang-completer
 
+#Semantic support for C-family languages
+#Requirments
+sudo apt install -y make 
+sudo apt install -y cmake 
+
+#Installing dilimitMate
+cd ~/.vim/
+git clone https://github.com/Raimondi/delimitMate.git
+
+
 #Snaps
 sudo snap install spotify
-
+sudo snap install eclipse --classic
 
 #Insert email for git
 git config --global user.email $EMAIL
 
-#Create .vimrc 
-touch ~/.vimrc
-cat .vimrc > ~/.vimrc
 
 #Minimize running window on click
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
