@@ -12,4 +12,8 @@ LOCATION=~/Music #Random location I chose
 attr -s $NAME -V $ATTRIBUTE $LOCATION 
 
 append_to_bashrc "alias $NAME='attr -g $NAME $LOCATION'"
+ echo "alias gitpush=/home/$USER/script.sh" >> ~/.bashrc
 
+#Automate log in to my github account
+git config.helper store
+git push 
