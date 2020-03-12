@@ -66,7 +66,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 echo "alias lsa='ls -a'" >> ~/.bashrc 
 echo "alias lsal='ls -al'" >> ~/.bashrc 
 echo "alias lsl='ls -l'" >> ~/.bashrc 
-echo "alias pdf='xdg-open" >> ~/.bashrc
+echo "alias pdf='xdg-open'" >> ~/.bashrc
 
 #Remove execute permission since it has to run only once
 chmod -x .config_file
