@@ -9,7 +9,6 @@ sudo apt install -y ubuntu-restricted-extras #Due to copyrights they are not inc
 sudo apt install -y git #git
 sudo apt install -y terminator #terminal
 sudo apt install -y torbrowser-launcher
-sudo apt install -y gnome-tweak-tool
 
 # Development tools that I need and may not be installed by default
 sudo apt install -y make
@@ -27,6 +26,14 @@ sudo apt install -y tree
 sudo apt install -y net-tools #For ifconfig
 sudo apt install -y vim #Vim
 sudo apt install -y attr #Attributes
+
+# Tweaks and gnome extensions
+sudo apt install -y gnome-tweak-tool
+sudo apt install -y libproxy1-plugin-networkmanager gnome-shell-extension-system-monitor
+sudo apt install -y chrome-gnome-shell
+
+#Minimize running window on click
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 # For fun
 sudo apt install -y cmatrix
@@ -48,9 +55,6 @@ sudo snap install discord
 
 #Insert email for git
 git config --global user.email $EMAIL
-
-#Minimize running window on click
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 #Aliases
 echo "alias lsa='ls -a'" >> ~/.bashrc
