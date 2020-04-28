@@ -1,71 +1,61 @@
 #!/bin/bash
 
-#Uncomment everything you need to install
+#(Un)comment everything you want
 
 read -p "Email: " EMAIL
 
-#Must-have Installs
+# Apps I usually use
 sudo apt install -y ubuntu-restricted-extras #Due to copyrights they are not included in Ubuntu by default
 sudo apt install -y git #git
-sudo apt install -y vim #Vim
-sudo apt install -y attr #Attributes
 sudo apt install -y terminator #terminal
-sudo apt install -y tree #tree command
-sudo apt install -y default-jdk #Java tools like javac
-sudo apt install -y nmap 
-sudo apt install -y net-tools #For ifconfig
 sudo apt install -y torbrowser-launcher
+sudo apt install -y gnome-tweak-tool
+
+# Development tools that I need and may not be installed by default
+sudo apt install -y make
+sudo apt install -y cmake
+sudo apt install -y gcc
+sudo apt install -y g++
+sudo apt install -y default-jdk #Java tools like javac
 sudo apt install -y maven
+
+# Terminal apps
 sudo apt install -y neofetch
 sudo apt install -y htop
+sudo apt install -y nmap
+sudo apt install -y tree
+sudo apt install -y net-tools #For ifconfig
+sudo apt install -y vim #Vim
+sudo apt install -y attr #Attributes
+
+# For fun
+sudo apt install -y cmatrix
+sudo apt install -y sl
 
 #Install brave browser
-#sudo apt install -y apt-transport-https curl
-#curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-#source /etc/os-release
-#echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
-#sudo apt update
-#sudo apt install -y brave-browser
-
-#Create .vimrc 
-#touch ~/.vimrc
-#cat .vimrc > ~/.vimrc
-
-#Requirments for YouCompleteMe
-#First of all, clone Vundle 
-#The required text to .vimrc is already done (Plugin YCM is written too)
-#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-#sudo apt install -y build-essential cmake python3-dev
-#vim -c 'PluginInstall' -c 'q' -c 'q' #Open vim, install YCM and then close it
-#cd ~/.vim/bundle/YouCompleteMe
-#python3 install.py --clang-completer
-
-#Semantic support for C-family languages
-#Requirments
-sudo apt install -y make 
-sudo apt install -y cmake 
-
-#Installing dilimitMate
-#cd ~/.vim/
-#git clone https://github.com/Raimondi/delimitMate.git
-
+sudo apt install -y apt-transport-https curl
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+source /etc/os-release
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
+sudo apt update
+sudo apt install -y brave-browser
 
 #Snaps
 sudo snap install spotify
 sudo snap install eclipse --classic
+sudo snap install atom --classic
+sudo snap install discord
 
 #Insert email for git
 git config --global user.email $EMAIL
-
 
 #Minimize running window on click
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 #Aliases
-echo "alias lsa='ls -a'" >> ~/.bashrc 
-echo "alias lsal='ls -al'" >> ~/.bashrc 
-echo "alias lsl='ls -l'" >> ~/.bashrc 
+echo "alias lsa='ls -a'" >> ~/.bashrc
+echo "alias lsal='ls -al'" >> ~/.bashrc
+echo "alias lsl='ls -l'" >> ~/.bashrc
 echo "alias pdf='xdg-open'" >> ~/.bashrc
 
 #Remove execute permission since it has to run only once
