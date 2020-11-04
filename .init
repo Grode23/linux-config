@@ -1,0 +1,36 @@
+GREEN=`tput setaf 2`
+EMAIL='dimitris23bp@gmail.com'
+
+# Git directory stuff
+mkdir -p ~/Documents/code/git
+ln -s ~/Documents/code/git ~/git
+echo "${GREEN} Git directory is created"
+
+# Git SSH connection and configs
+git config --global user.email $EMAIL
+
+ssh-keygen -t rsa -b 4096 -C $EMAIL
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+sudo pacman -S xclip; sudo apt install xclip -y
+xclip -sel clip < ~/.ssh/id_rsa.pub 
+echo "Copy public key to Github"
+echo "The public key is:"
+cat ~/.ssh/id_rsa.pub
+read -n 1 -s -r -p "When you are done with Github, press any key to continue "
+echo
+ssh -T git@github.com
+echo "${GREEN}SSH connection with Github is done"
+
+# Make sure date and time are correct
+sudo pacman -S ntp
+sudo timedatectl set-ntp true
+
+# Aliases
+echo "alias fl='flatpak'" >> ~/.bashrc
+echo "alias sfl='sudo flatpak'" >> ~/.bashrc
+echo "alias pdf='xdg-open'" >> ~/.bashrc
+source ~/.bashrc
+echo "${GREEN}Aliases are set"
+
+
