@@ -38,20 +38,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 # For fun
 sudo apt install -y cmatrix
 sudo apt install -y sl
-
-#Install brave browser
-sudo apt install -y apt-transport-https curl
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-source /etc/os-release
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
-sudo apt update
-sudo apt install -y brave-browser
-
-#Snaps
-sudo snap install spotify
-sudo snap install eclipse --classic
-sudo snap install atom --classic
-sudo snap install discord
+sudo apt install -y hollywood
 
 #Insert email for git
 git config --global user.email $EMAIL
@@ -61,6 +48,7 @@ echo "alias lsa='ls -a'" >> ~/.bashrc
 echo "alias lsal='ls -al'" >> ~/.bashrc
 echo "alias lsl='ls -l'" >> ~/.bashrc
 echo "alias pdf='xdg-open'" >> ~/.bashrc
+echo "alias up='sudo apt update ; sudo apt upgrade -y'" >> ~/.bashrc
 
 #Remove execute permission since it has to run only once
 chmod -x .config_file
