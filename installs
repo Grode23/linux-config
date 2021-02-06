@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Apps I usually use
+sudo apt install -y git terminator torbrowser-launcher flatpak
+
+# Development tools that I need and may not be installed by default
+sudo apt install -y make cmake gcc g++ default-jdk maven
+
+# Terminal apps
+sudo apt install -y neofetchahtop nmap tree net-tools vim attr
+
+# Tweaks and gnome extensions
+sudo apt install -y libproxy1-plugin-networkmanager gnome-shell-extension-system-monitor gnome-tweak-tool chrome-gnome-shell
+
+#Minimize running window on click
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+# For fun
+sudo apt install -y cmatrix sl hollywood 

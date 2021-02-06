@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "alias lsa='ls -a'" >> ~/.bashrc
+echo "alias lsal='ls -al'" >> ~/.bashrc
+echo "alias lsl='ls -l'" >> ~/.bashrc
+echo "alias pdf='xdg-open'" >> ~/.bashrc
+echo "alias up='sudo apt update ; sudo apt upgrade -y'" >> ~/.bashrc
+
+echo "alias fl='flatpak'" >> ~/.bashrc
+echo "alias sfl='sudo flatpak'" >> ~/.bashrc
+echo "alias pdf='xdg-open'" >> ~/.bashrc
+
+source ~/.bashrc
