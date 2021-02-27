@@ -7,7 +7,7 @@ sudo apt install -y git terminator torbrowser-launcher flatpak
 sudo apt install -y make cmake gcc g++ default-jdk maven
 
 # Terminal apps
-sudo apt install -y neofetchahtop nmap tree net-tools vim attr
+sudo apt install -y neofetch htop nmap tree net-tools vim attr
 
 # Tweaks and gnome extensions
 sudo apt install -y libproxy1-plugin-networkmanager gnome-shell-extension-system-monitor gnome-tweak-tool chrome-gnome-shell
